@@ -2,13 +2,11 @@
 .footer {
   background: rgba(15, 15, 30, 0.8);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2.5rem 2rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2vw, 2rem);
   position: relative;
   overflow: hidden;
   width: 100%;
   margin-top: auto;
-  margin-left: 0;
-  margin-right: 0;
 }
 
 .footer::before {
@@ -28,32 +26,36 @@
 }
 
 .footer-container {
-  width: 100%;
-  padding: 0 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.5rem, 2vw, 2rem);
 }
 
 .footer-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
   text-align: center;
 }
 
 .footer-text {
   color: var(--text-dark);
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
   margin: 0;
+  max-width: 600px;
 }
 
 .footer-socials {
   display: flex;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footer-social-link {
-  width: 40px;
-  height: 40px;
+  width: clamp(36px, 8vw, 40px);
+  height: clamp(36px, 8vw, 40px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,22 +65,25 @@
   transition: all 0.3s ease;
   text-decoration: none;
   background: rgba(0, 217, 255, 0.05);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
 }
 
 .footer-social-link:hover {
   background: var(--primary);
   color: var(--bg);
   box-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
+  transform: translateY(-3px);
 }
 
 .footer-credit {
   color: var(--text-dark);
-  font-size: 0.95rem;
+  font-size: clamp(0.8rem, 1.3vw, 0.95rem);
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .heart {
@@ -95,6 +100,36 @@
   }
   50% {
     transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 15px;
+  }
+
+  .footer-container {
+    padding: 0 0.5rem;
+  }
+
+  .footer-content {
+    gap: 1rem;
+  }
+
+  .footer-socials {
+    gap: 0.8rem;
+  }
+
+  .footer-social-link {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .footer-text,
+  .footer-credit {
+    font-size: 0.85rem;
   }
 }
 
