@@ -1,0 +1,212 @@
+/* Projects Section Styles */
+.projects {
+  min-height: 100vh;
+  padding: 100px 20px;
+  background: linear-gradient(180deg, rgba(15, 15, 30, 0.5) 0%, rgba(22, 33, 62, 0.5) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card:hover {
+  border-color: var(--primary);
+}
+
+.project-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 0, 126, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.overlay-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.overlay-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 2px solid white;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.overlay-btn:hover {
+  background: white;
+  color: var(--bg);
+  border-color: white;
+}
+
+.demo-btn {
+  border-color: #00d9ff;
+  color: #00d9ff;
+}
+
+.demo-btn:hover {
+  background: #00d9ff;
+  color: var(--bg);
+  border-color: #00d9ff;
+}
+
+.github-btn {
+  border-color: #ff006e;
+  color: #ff006e;
+}
+
+.github-btn:hover {
+  background: #ff006e;
+  color: white;
+  border-color: #ff006e;
+}
+
+.project-content {
+  padding: 1.8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tag {
+  padding: 6px 14px;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: rgba(0, 217, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.tag:hover {
+  background: rgba(0, 217, 255, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-image {
+    height: 200px;
+  }
+
+  .image-emoji {
+    font-size: 3.5rem;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .overlay-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Animation for cards appearing */
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
